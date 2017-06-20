@@ -14,7 +14,7 @@ servoRoboto.on('message', (message) =>{
     if (!message.guild) return;
 
     if(message.content == '!help'){
-        message.author.send('regulars commands: !delete # (where # is between 2 and 100) \n\n' +
+        message.author.send('regulars commands: !delete # (where # is between 2 and 100) \n !date \n !time \n\n' +
         'Audio commands list: \n !bruh \n !shots \n !triple \n !horn1 \n !horn2 \n !wow \n !smart \n !appreciate \n !fun \n !breakfast \n' +
         ' !zipzap \n !overhere \n !puddinpop \n !sorry \n !hm \n !hello \n !vg \n !ty \n !butt \n !rev \n !hey \n !odd \n !ree \n !yes \n !chili \n !feel \n fna ' + 
         '\n hea \n !comingin \n !rocks \n !shrapnel \n !dead \n !dream  \n !here \n !nico \n !isit \n\n'+
