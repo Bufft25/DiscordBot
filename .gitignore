@@ -59,3 +59,7 @@ typings/
 
 #audio files
 *.mp3
+
+#image files
+*.png
+
