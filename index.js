@@ -13,19 +13,41 @@ servoRoboto.on('message', (message) =>{
     // we ignore it
     if (!message.guild) return;
 
-    if(message.content == '!help me'){
-        message.author.send('Audio commands list: \n !bruh \n !shots \n !triple \n !horn1 \n !horn2 \n !wow \n !smart \n !appreciate \n !fun \n !breakfast \n' +
-        ' !zipzap \n !overhere \n !puddinpop \n\n'+
+    if(message.content == '!help'){
+        message.author.send('regulars commands: !delete # (where # is between 2 and 100) \n\n' +
+        'Audio commands list: \n !bruh \n !shots \n !triple \n !horn1 \n !horn2 \n !wow \n !smart \n !appreciate \n !fun \n !breakfast \n' +
+        ' !zipzap \n !overhere \n !puddinpop \n !sorry \n !hm \n !hello \n !vg \n !ty \n !butt \n !rev \n !hey \n !odd \n !ree \n !yes \n !chili \n !feel \n fna ' + 
+        '\n hea \n !comingin \n !rocks \n !shrapnel \n !dead \n !dream  \n !here \n !nico \n !isit \n\n'+
         'Reaction pictures command list: \n :tim: \n :wtd:'); //sent via direct message to person asking for help.
+    }
+
+
+    if(message.content.substring(0,7) == '!delete'){
+        try{
+        var numDelete = parseInt(message.content.substring (8,message.content.length), 10);
+        console.log(numDelete);
+        if(numDelete >= 2 && numDelete <= 100){
+           message.channel.fetchMessages({limit: numDelete}).then(messages => message.channel.bulkDelete(messages));
+        }
+        }catch(err){
+            message.log(err);
+        }
+    
     }
 
     if (message.content == '!bruh' || message.content == '!shots' || message.content == '!triple' || message.content == '!horn2' || 
         message.content == '!horn1' || message.content == '!wow' || message.content == '!smart' || message.content == '!appreciate' ||
-        message.content == '!storm1' || message.content == '!breakfast' || message.content == '!zipzap' || message.content == '!overhere' || 
-        message.content == '!puddinpop') {
+        message.content == '!fun' || message.content == '!breakfast' || message.content == '!zipzap' || message.content == '!overhere' || 
+        message.content == '!puddinpop' || message.content == '!sorry' || message.content == '!hm' || message.content == '!hello' ||
+        message.content == '!vg' || message.content == '!ty' || message.content == '!butt' || message.content == '!rev' ||
+         message.content == '!yes' || message.content == '!hey' || message.content == '!odd' || message.content == '!ree' ||
+         message.content == '!chili' || message.content == '!feel' || message.content == '!fna' || message.content == '!hea' ||
+         message.content == '!comingin' || message.content == '!rocks' || message.content == '!shrapnel' || message.content == '!dead' ||
+         message.content == '!dream' || message.content == '!here' || message.content == '!nico' || message.content =='!isit'){
         // Only try to join the sender's voice channel if they are in one themselves
         if (message.member.voiceChannel) {
-        message.member.voiceChannel.join()
+            var channel = message.member.voiceChannel;
+            message.member.voiceChannel.join()
             .then(connection => { // Connection is an instance of VoiceConnection
             switch(message.content){ //which audio file is played.
                 case '!bruh':
@@ -67,9 +89,78 @@ servoRoboto.on('message', (message) =>{
                 case '!puddinpop':
                     var dispatcher = connection.playFile('audioReact/puddinpop.mp3');
                     break;
+                case '!sorry':
+                    var dispatcher = connection.playFile('audioReact/sorry.mp3');
+                    break;
+                case '!hm':
+                    var dispatcher = connection.playFile('audioReact/hm.mp3');
+                    break;
+                case '!hello':
+                    var dispatcher = connection.playFile('audioReact/hello.mp3');
+                    break;
+                case '!vg':
+                    var dispatcher = connection.playFile('audioReact/vg.mp3');
+                    break;
+                case '!ty':
+                    var dispatcher = connection.playFile('audioReact/ty.mp3');
+                    break;
+                case '!butt':
+                    var dispatcher = connection.playFile('audioReact/butt.mp3');
+                    break;
+                case '!rev':
+                    var dispatcher = connection.playFile('audioReact/rev.mp3');
+                    break;
+                case '!hey':
+                    var dispatcher = connection.playFile('audioReact/HEY.mp3');
+                    break;
+                case '!odd':
+                    var dispatcher = connection.playFile('audioReact/ODD.mp3');
+                    break;
+                case '!ree':
+                    var dispatcher = connection.playFile('audioReact/REEE.mp3');
+                    break;
+                case '!yes':
+                    var dispatcher = connection.playFile('audioReact/YESYESYES.mp3');
+                    break;
+                case '!chili':
+                    var dispatcher = connection.playFile('audioReact/CHILIDOGS.mp3');
+                    break;
+                case '!feel':
+                    var dispatcher = connection.playFile('audioReact/feelsso.mp3');
+                    break;
+                case '!fna':
+                    var dispatcher = connection.playFile('audioReact/fna.mp3');
+                    break;
+                case '!hea':
+                    var dispatcher = connection.playFile('audioReact/HEA.mp3');
+                    break;
+                case '!comingin':
+                    var dispatcher = connection.playFile('audioReact/coming_in.mp3');
+                    break;
+                case '!rocks':
+                    var dispatcher = connection.playFile('audioReact/rocks.mp3');
+                    break;
+                case '!shrapnel':
+                    var dispatcher = connection.playFile('audioReact/shrapnel.mp3');
+                    break;
+                case '!dead':
+                    var dispatcher = connection.playFile('audioReact/dead.mp3');
+                    break;
+                case '!dream':
+                    var dispatcher = connection.playFile('audioReact/dream.mp3');
+                    break;
+                case '!here':
+                    var dispatcher = connection.playFile('audioReact/here.mp3');
+                    break;
+               case '!nico':
+                    var dispatcher = connection.playFile('audioReact/nico.mp3');
+                    break;
+               case '!isit':
+                    var dispatcher = connection.playFile('audioReact/orisit.mp3');
+                    break;                       
             }
             dispatcher.on('end', () => {
-                    message.member.voiceChannel.leave();  // The song has finished
+                    channel.leave();  // The song has finished
                     });
 
                 })
