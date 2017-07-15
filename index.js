@@ -17,7 +17,7 @@ servoRoboto.on('message', (message) =>{
         message.author.send('regulars commands: !delete # (where # is between 2 and 100) \n !date \n !time \n\n' +
         'Audio commands list: \n !bruh \n !shots \n !triple \n !horn1 \n !horn2 \n !wow \n !smart \n !appreciate \n !fun \n !breakfast \n' +
         ' !zipzap \n !overhere \n !puddinpop \n !sorry \n !hm \n !hello \n !vg \n !ty \n !butt \n !rev \n !hey \n !odd \n !ree \n !yes \n !chili \n !feel \n fna ' + 
-        '\n hea \n !comingin \n !rocks \n !shrapnel \n !dead \n !dream  \n !here \n !nico \n !isit \n\n'+
+        '\n hea \n !comingin \n !rocks \n !shrapnel \n !dead \n !dream  \n !here \n !nico \n !isit \n !winter \n !youwhat \n\n'+
         'Reaction pictures command list: \n :tim: \n :wtd:'); //sent via direct message to person asking for help.
     }
 
@@ -43,7 +43,8 @@ servoRoboto.on('message', (message) =>{
          message.content == '!yes' || message.content == '!hey' || message.content == '!odd' || message.content == '!ree' ||
          message.content == '!chili' || message.content == '!feel' || message.content == '!fna' || message.content == '!hea' ||
          message.content == '!comingin' || message.content == '!rocks' || message.content == '!shrapnel' || message.content == '!dead' ||
-         message.content == '!dream' || message.content == '!here' || message.content == '!nico' || message.content =='!isit'){
+         message.content == '!dream' || message.content == '!here' || message.content == '!nico' || message.content =='!isit' || 
+         message.content == '!winter' ||message.content == '!youwhat'){
         // Only try to join the sender's voice channel if they are in one themselves
         if (message.member.voiceChannel) {
             var channel = message.member.voiceChannel;
@@ -157,7 +158,13 @@ servoRoboto.on('message', (message) =>{
                     break;
                case '!isit':
                     var dispatcher = connection.playFile('audioReact/orisit.mp3');
-                    break;                       
+                    break;
+               case '!winter':
+                    var dispatcher = connection.playFile('audioReact/nuclearwinter.mp3');
+                    break;
+               case '!youwhat':
+                    var dispatcher = connection.playFile('audioReact/youwhat.mp3');
+                    break;                                
             }
             dispatcher.on('end', () => {
                     channel.leave();  // The song has finished
