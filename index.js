@@ -15,10 +15,10 @@ BotBoy.on('message', (message) =>{
 
     if(message.content == '!help'){
         message.author.send('regulars commands: !delete # (where # is between 2 and 100) \n !date \n !time \n\n' +
-        'Audio commands list: \n A !aah  !appreciate \n B !banana  !breakfast  !bruh  !bury  !butt \n C !chili  !comingin \n D !damnright  !dead' +
-        '  !dontsay  !dream \n F !fb  !feel  !firstturn  !fna  !fuckedup  !fun \n H !hea  !heh  !hello  !here  !hey  !hm  !horn1  !horn2 \n I !isit ' +
-        ' \n J !joke \n L !laser  !loveu  !luis \n N !nico  !no \n O !odd  !omghg  !overhere \n P !pgood  !puddinpop  !purse \n R !ree  !rev  !rocks \n S !sandwich ' +
-        '  !shots  !shrapnel  !smart  !sorry  !sorryh  !swindled \n T !talking  !thattome  !triple  !ty \n U !urgay \n V !vg \n W !winter  !woah ' +
+        'Audio commands list: \n A !aah  !appreciate !aint \n B !banana  !breakfast  !bruh  !bury  !butt \n C !chili  !comingin !cancer \n D !damnright  !dead' +
+        '!doctawahwee  !dontsay  !dream \n E !eft \n F !fb  !feel  !firstturn  !fna  !fuckedup  !fun !fired \n H !hea  !heh  !hello  !here  !hey  !hm  !horn1  !horn2 \n I !isit ' +
+        ' \n J !joke \n L !laser  !loveu  !luis \n M !meteah \n N !nico  !no \n O !odd  !omghg  !overhere \n P !pgood  !puddinpop  !purse \n Q !question \n R !ree  !rev  !rocks \n S !sandwich ' +
+        '  !shots  !shrapnel  !smart  !sorry  !sorryh  !swindled \n T !talking  !thattome  !triple  !ty !tpp \n U !urgay \n V !vg \n W !winter  !woah ' +
         '  !wow \n Y !yes  !youwhat \n Z !zipzap \n\n'+
         'Reaction pictures command list: \n :tim: \n :wtd: '); //sent via direct message to person asking for help.
     }
@@ -51,7 +51,9 @@ BotBoy.on('message', (message) =>{
        message.content == '!firstturn' || message.content == '!fuckedup' || message.content == '!fb' || message.content == '!heh' || message.content == '!joke' ||
        message.content == '!loveu' || message.content == '!luis' || message.content == '!no' || message.content == '!omghg' || message.content == '!purse' ||
        message.content == '!sandwich' || message.content == '!sandwich' || message.content == '!sorryh' || message.content == '!swindled' ||
-       message.content == '!talking' || message.content == '!thattome' || message.content == '!urgay' ){
+       message.content == '!talking' || message.content == '!thattome' || message.content == '!urgay'  || message.content == '!aint' ||
+       message.content == '!cancer' || message.content == '!doctawahwee' || message.content == '!eft' || message.content == '!fired' ||
+       message.content == '!meteah' || message.content == '!question' || message.content == '!tpp'){
         // Only try to join the sender's voice channel if they are in one themselves
         if (message.member.voiceChannel) {
             var channel = message.member.voiceChannel;
@@ -243,6 +245,30 @@ BotBoy.on('message', (message) =>{
                     break;
                case '!youwhat':
                     var dispatcher = connection.playFile('audioReact/youwhat.mp3');
+                    break;
+               case '!aint':
+                    var dispatcher = connection.playFile('audioReact/aint.mp3');
+                    break;
+                case '!cancer':
+                    var dispatcher = connection.playFile('audioReact/cancer.mp3');
+                    break;
+                case '!doctawahwee':
+                    var dispatcher = connection.playFile('audioReact/doctawahwee.mp3');
+                    break;
+                case '!eft':
+                    var dispatcher = connection.playFile('audioReact/eft.mp3');
+                    break;
+               case '!fired':
+                    var dispatcher = connection.playFile('audioReact/fired.mp3');
+                    break;
+               case '!meteah':
+                    var dispatcher = connection.playFile('audioReact/meteah.mp3');
+                    break;
+               case '!question':
+                    var dispatcher = connection.playFile('audioReact/question.mp3');
+                    break;
+               case '!tpp':
+                    var dispatcher = connection.playFile('audioReact/tpp.mp3');
                     break;
             }
             dispatcher.on('end', () => {
