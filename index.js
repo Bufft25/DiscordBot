@@ -281,6 +281,7 @@ BotBoy.on('message', (message) => {
                                 break;
                         }
                         dispatcher.on('end', () => {
+                            dispatcher = null;
                             channel.leave();  // The song has finished
                         });
                     }).catch(console.log);
